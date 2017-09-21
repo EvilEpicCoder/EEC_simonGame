@@ -9,3 +9,53 @@ h2{
   font-size: 30px;
   font-family: 'Arial', cursive;
 }
+.container{
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid red;
+}
+.hull{
+  text-align: center;
+  border: 1px solid green;
+  height:320px;
+  width:320px;
+}
+.button{
+  display: inline-block;
+  height:140px;
+  width:140px;
+  border: 1px solid blue;
+}
+.operation_area{
+  float: left;
+  position: absolute;
+  border: 1px solid magenta;
+  top:200px;
+  margin-left:150px;
+
+  height:30px;
+  width:150px;
+}
+.on{
+  display: inline-block;
+  text-align: left;
+  border: 1px solid yellow;
+  height:30px;
+  width:30px;
+  border-radius: 50%;
+}
+.score{
+  display: inline-block;
+  text-align: center;
+  border: 1px solid black;
+  height:30px;
+  width:80px;
+}
+.strict{
+  display: inline-block;
+  border: 1px solid olive;
+  text-align: right;
+  height:30px;
+  width:30px;
+  border-radius: 50%;
+}
