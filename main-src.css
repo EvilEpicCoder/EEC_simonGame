@@ -48,8 +48,8 @@ h2{
   box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.7);
 }
 .green:hover{
-  background: #cfc!important;
-  box-shadow: inset -5px -5px 30px 30px rgba(54,255,54,0.8);
+  background: #6b6!important;
+  box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.70);
 }
 .red{
   border-top-right-radius: 100%;
@@ -60,11 +60,11 @@ h2{
 
 }
 .red:hover{
-  background: #fcc!important;
-  box-shadow: inset 5px -5px 30px 30px rgba(255,100,100,0.8);
+  background: #f66!important;
+  box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.70);
 }
 .bluu{
-background:#66f;
+background:#66b;
 border-bottom-right-radius: 100%;
 -webkit-box-shadow: inset 0px 0px 10px 1px rgba(54,54,54,0.7);
 -moz-box-shadow: inset 0px 0px 10px 1px rgba(54,54,54,0.7);
@@ -72,8 +72,8 @@ border-bottom-right-radius: 100%;
 box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.7);
 }
 .bluu:hover{
-  background: #ccf!important;
-  box-shadow: inset -5px -5px 30px 30px rgba(100,100,255,0.8);
+  background: #88b!important;
+  box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.70);
 }
 .yellow{
 border-bottom-left-radius: 100%;
@@ -83,8 +83,8 @@ border-bottom-left-radius: 100%;
 box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.7);
 }
 .yellow:hover{
-  background: #ffc!important;
-  box-shadow: inset -5px 5px 30px 30px rgba(255,255,54,0.8);
+  background: #ff6!important;
+  box-shadow: inset 0px 0px 50px 1px rgba(70,70,54,0.70);
 }
 
 .operation_area{
