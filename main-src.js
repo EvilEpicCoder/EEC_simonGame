@@ -1,79 +1,121 @@
 //main-src.js Simon Game
 var bStartFlag=false;
+var bStrictMode=false;
 var myoffDelay=0;
 var green_t,red_t,blue_t,yellow_t=0;
 var simonSayArr=[];
-var userConfirmArr=[0];
+var userConfirmArr=[];
+var userTempArr=[];
 var step=0;
 var i=0;
 $(document).ready(function(){
 //var i=0;
-//if(bStartFlag==true){
   $(".green").click(function(){
+    if(bStartFlag==true){
     userConfirmArr.push(1);
-    simonThinking(simonSayArr,userConfirmArr);
-  });
-  $(".red").click(function(){
-    userConfirmArr.push(2);
-    simonThinking(simonSayArr,userConfirmArr);
-  });
-  $(".bluu").click(function(){
-    userConfirmArr.push(3);
-    simonThinking(simonSayArr,userConfirmArr);
-  });
-  $(".yellow").click(function(){
-    userConfirmArr.push(4);
-    simonThinking(simonSayArr,userConfirmArr);
+    console.log(userConfirmArr+"userConfirmArr");
+    console.log(simonSayArr+"simonSayArr");
+    $("#gsound")[0].play();
+      if(simonSayArr.length==userConfirmArr.length){
+      simonThinking(simonSayArr,userConfirmArr);
+    }
+  }
   });
 
-//}
+  $(".red").click(function(){
+    if(bStartFlag==true){
+    userConfirmArr.push(2);
+    console.log(userConfirmArr+"userConfirmArr");
+    console.log(simonSayArr+"simonSayArr");
+    $("#rsound")[0].play();
+      if(simonSayArr.length==userConfirmArr.length){
+      simonThinking(simonSayArr,userConfirmArr);
+    }
+  }
+  });
+  $(".bluu").click(function(){
+    if(bStartFlag==true){
+    userConfirmArr.push(3);
+    console.log(userConfirmArr+"userConfirmArr");
+    console.log(simonSayArr+"simonSayArr");
+    $("#bsound")[0].play();
+      if(simonSayArr.length==userConfirmArr.length){
+      simonThinking(simonSayArr,userConfirmArr);
+    }
+  }
+  });
+  $(".yellow").click(function(){
+    if(bStartFlag==true){
+    userConfirmArr.push(4);
+    console.log(userConfirmArr+"userConfirmArr");
+    console.log(simonSayArr+"simonSayArr");
+    $("#ysound")[0].play();
+    if(simonSayArr.length==userConfirmArr.length){
+      simonThinking(simonSayArr,userConfirmArr);
+    }
+  }
+  });
   $(".power").click(function(){
     if(bStartFlag==false){
       console.log("on");
       onProcedure();
       $(".pslide").css("margin-left","25px");
       $(".score").text(step);
+      $(".operation_area").addClass("active_display");
+      $(".score").css("background-color","#833");
+      $(".score").text("0");
+      $(".score").css("color","#f55");
       bStartFlag=true;
     }else{
       console.log("off");
       $(".pslide").css("margin-left","0px");
+      $(".operation_area").removeClass("active_display");
+      $(".score").css("background-color","#511");
+      $(".score").text("0");
+      $(".score").css("color","#511");
       bStartFlag=false;
     }
   });
   //-------------------------------------
   $(".on").click(function(){
+    if(bStartFlag==true){
+      simonSayArr=[];
+      userConfirmArr=[];
+      userTempArr=[];
+      step=0;
+
   var X= Math.floor(Math.random() * (4 - 1)) + 1;
   step++;
   $(".score").text(step);
   simonSayArr.push(X);
   //lightOnTime(X);
   console.log(simonSayArr);
-  f();
+  initSimon();
   i=0;
+  }
   });
-
+  $(".strict").click(function(){
+    if(bStartFlag==true){
+      bStrictMode=true;
+    }
+  });
 });
 
-var f=function initSimon(){
+function initSimon(){
 setTimeout(function(){
   lightOnTime(simonSayArr[i]);
   i=i+1;
   if (i<=simonSayArr.lenght-1)simonSayArr[i];i;setTimeout(initSimon(),i*i*"100");
 },i*i*"800");
-
 }
+
 function onProcedure(){
-  console.log("pass");
-    $(".green").addClass("greeninit");
-    $(".red").addClass("redinit");
-    $(".bluu").addClass("bluuinit");
-    $(".yellow").addClass("yellowinit");
+  console.log("on------");
+
+    $("#gsound")[0].play();
+    $("#bsound")[0].play();
   myoffDelay=setInterval(function(){
-    console.log("off--------");
-    $(".green").removeClass("greeninit");
-    $(".red").removeClass("redinit");
-    $(".bluu").removeClass("bluuinit");
-    $(".yellow").removeClass("yellowinit");
+    console.log("off------");
     clearInterval(myoffDelay);
     myoffDelay=0;
   },2000);
@@ -82,28 +124,80 @@ function strictSimon(){
 
 }
 function lightOnTime(colorNum){
-  if(colorNum==1)$(".green").addClass("greeninit");green_t=setInterval(function(){$(".green").removeClass("greeninit");clearInterval(green_t);},2000);
-  if(colorNum==2)$(".red").addClass("redinit");red_t=setInterval(function(){$(".red").removeClass("redinit");clearInterval(red_t);},2000);
-  if(colorNum==3)$(".bluu").addClass("bluuinit");bluu_t=setInterval(function(){$(".bluu").removeClass("bluuinit");clearInterval(bluu_t);},2000);
-  if(colorNum==4)$(".yellow").addClass("yellowinit");yellow_t=setInterval(function(){$(".yellow").removeClass("yellowinit");clearInterval(yellow_t);},2000);
+  if(colorNum==1){
+    $(".green").addClass("greeninit");
+    green_t=setInterval(function(){$(".green").removeClass("greeninit");clearInterval(green_t);},1000);
+    $("#gsound")[0].play();
+  }
+  if(colorNum==2){
+    $(".red").addClass("redinit");
+    red_t=setInterval(function(){$(".red").removeClass("redinit");clearInterval(red_t);},1000);
+    $("#rsound")[0].play();
+  }
+  if(colorNum==3){
+    $(".bluu").addClass("bluuinit");
+    bluu_t=setInterval(function(){$(".bluu").removeClass("bluuinit");clearInterval(bluu_t);},1000);
+    $("#bsound")[0].play();
+  }
+  if(colorNum==4){
+    $(".yellow").addClass("yellowinit");
+    yellow_t=setInterval(function(){$(".yellow").removeClass("yellowinit");clearInterval(yellow_t);},1000);
+    $("#ysound")[0].play();
+  }
 }
 function simonThinking(arr1,arr2){
-  a=arr1[step];
-  b=arr2[step];
-  a=parseInt(a);
-  b=parseInt(b);
-  if(a==b){
-    console.log(a+"  "+b+"bingo"+step);
-    console.log(typeof(a)+"  "+typeof(b)+"bingo"+typeof(step));
-  }else{
-    console.log(a+"  "+b+"---------"+step);
-    console.log(typeof(a)+"  "+typeof(b)+"---------"+typeof(step));
-    lightOnTime(1);
-    lightOnTime(2);
-    lightOnTime(3);
-    lightOnTime(4);
-  }
+var newArr = [];
+  // Same, same; but different.
+var aarr1 = arr1.filter(function(value){
+	for (var i=0; i<arr2.length; i++)
+	{
+	  if ( arr2[i] == value )
+	    return false;
+	}
+	return true;
+	});
+var aarr2 = arr2.filter(function(value){
+	for (var j=0; j<arr1.length; j++)
+	{
+	  if ( arr1[j] == value )
+	    return false;
+	}
+	return true;
+	});
+	newArr = aarr1.concat(aarr2);
 
+      if(newArr.length>0){
+        $("#GTA_fail")[0].play();
+        step=-1;
+        $(".green").addClass("greeninit");
+        $(".red").addClass("redinit");
+        $(".bluu").addClass("bluuinit");
+        $(".yellow").addClass("yellowinit");
+      myoffDelay=setInterval(function(){
+        console.log("off------");
+        $(".green").removeClass("greeninit");
+        $(".red").removeClass("redinit");
+        $(".bluu").removeClass("bluuinit");
+        $(".yellow").removeClass("yellowinit");
+        clearInterval(myoffDelay);
+        myoffDelay=0;
+      },6000);
+      i=0;
+      initSimon();
+    }else{
+          prepareSimon();
+          userConfirmArr=[];
+    }
+  //   }
 
-
+}
+function prepareSimon(){
+var X= Math.floor(Math.random() * (4 - 1)) + 1;
+step++;
+$(".score").text(step);
+simonSayArr.push(X);
+//lightOnTime(X);
+console.log(simonSayArr);
+initSimon();
+i=0;
 }

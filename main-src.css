@@ -1,4 +1,10 @@
 /*main-src.css Simon Game*/
+body{
+  -moz-user-select: none;
+-khtml-user-select: none;
+-webkit-user-select: none;
+user-select: none;
+}
 h1{
   text-align: center;
   font-size: 60px;
@@ -41,17 +47,19 @@ h2{
   width:140px;
 }
 .green{
+  cursor: pointer;
   border-top-left-radius: 100%;
   -webkit-box-shadow: inset 0px 0px 10px 1px rgba(54,54,54,0.7);
   -moz-box-shadow: inset 0px 0px 10px 1px rgba(54,54,54,0.7);
   /*box-shadow: inset 0px 0px 40px 10px rgba(150,54,54,0.65);*/
   box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.7);
 }
-.green:hover{
+.green:active{
   background: #6b6!important;
   box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.70);
 }
 .red{
+  cursor: pointer;
   border-top-right-radius: 100%;
   -webkit-box-shadow: inset 0px 0px 10px 1px rgba(54,54,54,0.7);
   -moz-box-shadow: inset 0px 0px 10px 1px rgba(54,54,54,0.7);
@@ -59,11 +67,12 @@ h2{
   box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.7);
 
 }
-.red:hover{
+.red:active{
   background: #f66!important;
   box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.70);
 }
 .bluu{
+  cursor: pointer;
 background:#66b;
 border-bottom-right-radius: 100%;
 -webkit-box-shadow: inset 0px 0px 10px 1px rgba(54,54,54,0.7);
@@ -71,18 +80,19 @@ border-bottom-right-radius: 100%;
 /*box-shadow: inset 0px 0px 40px 10px rgba(150,54,54,0.65);*/
 box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.7);
 }
-.bluu:hover{
+.bluu:active{
   background: #88b!important;
   box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.70);
 }
 .yellow{
+cursor: pointer;
 border-bottom-left-radius: 100%;
 -webkit-box-shadow: inset 0px 0px 10px 1px rgba(54,54,54,0.7);
 -moz-box-shadow: inset 0px 0px 10px 1px rgba(54,54,54,0.7);
 /*box-shadow: inset 0px 0px 40px 10px rgba(150,54,54,0.65);*/
 box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.7);
 }
-.yellow:hover{
+.yellow:active{
   background: #ff6!important;
   box-shadow: inset 0px 0px 50px 1px rgba(70,70,54,0.70);
 }
@@ -99,14 +109,15 @@ box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.7);
 
   box-shadow: 0px 0px 10px 4px rgba(54,54,54,0.2);
 }
-/*.operation_area::after{
+.active_display::after{
   content:'';
   position:relative;
-  top:-10px;
-  left: -60px;
-  box-shadow:0px 0px 60px 30px rgba(255,54,54,0.9);
-}*/
+  top:-60px;
+  left:-20px;
+  box-shadow:0px 0px 60px 30px rgba(255,54,54,0.4);
+}
 .on{
+  cursor: pointer;
   display: inline-block;
   text-align: center;
   margin-top: 60px;
@@ -118,12 +129,15 @@ box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.7);
   border-radius: 50%;
   background: radial-gradient(#fdd,#fdd,#f00);
 }
+.on:active{
+  background: radial-gradient(#f88,#f66,#f00);
+}
 .score{
   /*visibility: hidden;*/
   display: inline-block;
   text-align: center;
   border: 2px solid #000;
-  background-color: #833;
+  background-color: #511;
   height:50px;
   width:60px;
   color:#f55;
@@ -139,6 +153,9 @@ box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.7);
   padding-top:5px;
   line-height:18px;
   background: radial-gradient(#ddf,#ddf,#00f);
+}
+.strict:active{
+  background: radial-gradient(#88f,#66f,#00f);
 }
 .power{
   display: inline-block;
