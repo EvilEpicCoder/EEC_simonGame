@@ -1,19 +1,18 @@
 /*main-src.css Simon Game*/
 body{
   -moz-user-select: none;
--khtml-user-select: none;
--webkit-user-select: none;
-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  font-family: 'Arial', cursive;
 }
 h1{
   text-align: center;
   font-size: 60px;
-  font-family: 'Arial', cursive;
 }
 h2{
   text-align: center;
   font-size: 30px;
-  font-family: 'Arial', cursive;
 }
 .container{
   margin: 0 auto;
@@ -28,7 +27,7 @@ h2{
 }
 .hull{
   text-align: center;
-  padding:6px;
+  padding:3px;
   height:300px;
   width:300px;
   border-radius: 50%;
@@ -43,70 +42,58 @@ h2{
 }*/
 .button{
   display: inline-block;
-  height:140px;
-  width:140px;
-}
-.green{
-  cursor: pointer;
-  border-top-left-radius: 100%;
+  height:148px;
+  width:148px;
   -webkit-box-shadow: inset 0px 0px 10px 1px rgba(54,54,54,0.7);
   -moz-box-shadow: inset 0px 0px 10px 1px rgba(54,54,54,0.7);
   /*box-shadow: inset 0px 0px 40px 10px rgba(150,54,54,0.65);*/
   box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.7);
 }
+.green{
+  background: #6b6;
+  cursor: pointer;
+  border-top-left-radius: 100%;
+}
 .green:active{
-  background: #6b6!important;
-  box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.70);
+  background: #8b8!important;
+  box-shadow: inset 0px 0px 50px 1px rgba(54,70,54,0.70);
 }
 .red{
   cursor: pointer;
+  background:#f66;
   border-top-right-radius: 100%;
-  -webkit-box-shadow: inset 0px 0px 10px 1px rgba(54,54,54,0.7);
-  -moz-box-shadow: inset 0px 0px 10px 1px rgba(54,54,54,0.7);
-  /*box-shadow: inset 0px 0px 40px 10px rgba(150,54,54,0.65);*/
-  box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.7);
-
 }
 .red:active{
-  background: #f66!important;
-  box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.70);
+  background: #f88!important;
+  box-shadow: inset 0px 0px 50px 1px rgba(70,54,54,0.70);
 }
 .bluu{
-  cursor: pointer;
+cursor: pointer;
 background:#66b;
 border-bottom-right-radius: 100%;
--webkit-box-shadow: inset 0px 0px 10px 1px rgba(54,54,54,0.7);
--moz-box-shadow: inset 0px 0px 10px 1px rgba(54,54,54,0.7);
-/*box-shadow: inset 0px 0px 40px 10px rgba(150,54,54,0.65);*/
-box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.7);
 }
 .bluu:active{
   background: #88b!important;
-  box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.70);
+  box-shadow: inset 0px 0px 50px 1px rgba(54,54,70,0.70);
 }
 .yellow{
-cursor: pointer;
-border-bottom-left-radius: 100%;
--webkit-box-shadow: inset 0px 0px 10px 1px rgba(54,54,54,0.7);
--moz-box-shadow: inset 0px 0px 10px 1px rgba(54,54,54,0.7);
-/*box-shadow: inset 0px 0px 40px 10px rgba(150,54,54,0.65);*/
-box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.7);
+  background: #ff6;
+ cursor: pointer;
+ border-bottom-left-radius: 100%;
 }
 .yellow:active{
-  background: #ff6!important;
+  background: #ffa!important;
   box-shadow: inset 0px 0px 50px 1px rgba(70,70,54,0.70);
 }
-
 .operation_area{
   float: left;
   position: absolute;
-  top:253px;
-  margin-left:74px;
+  top:280px;
+  margin-left:77px;
   height:150px;
   width:150px;
   border-radius: 50%;
   background: radial-gradient(#888,#888,#888,#888,#000,#000);
-
   box-shadow: 0px 0px 10px 4px rgba(54,54,54,0.2);
 }
 .active_display::after{
@@ -114,7 +101,7 @@ box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.7);
   position:relative;
   top:-60px;
   left:-20px;
-  box-shadow:0px 0px 60px 30px rgba(255,54,54,0.4);
+  box-shadow:0px 0px 60px 30px rgba(255,54,54,0.5);
 }
 .on{
   cursor: pointer;
@@ -124,9 +111,10 @@ box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.7);
   height:30px;
   width:30px;
   font-size: 10px;
-  padding-top:5px;
+  padding-top:0px;
   line-height:18px;
   border-radius: 50%;
+  border: 2px inset #666;
   background: radial-gradient(#fdd,#fdd,#f00);
 }
 .on:active{
@@ -136,7 +124,7 @@ box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.7);
   /*visibility: hidden;*/
   display: inline-block;
   text-align: center;
-  border: 2px solid #000;
+  border: 2px inset #666;
   background-color: #511;
   height:50px;
   width:60px;
@@ -144,18 +132,29 @@ box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.7);
   font-size:40px;
 }
 .strict{
+  cursor: pointer;
   display: inline-block;
   text-align: center;
   height:30px;
   width:30px;
+  border: 2px inset #666;
   border-radius: 50%;
   font-size: 10px;
-  padding-top:5px;
+  padding-top:0px;
   line-height:18px;
   background: radial-gradient(#ddf,#ddf,#00f);
 }
+.strictmodeactive{
+  background: radial-gradient(#dfd,#dfd,#0f0);
+}
 .strict:active{
   background: radial-gradient(#88f,#66f,#00f);
+}
+.on p{
+  margin-top:5px;
+}
+.strict p{
+  margin-top:5px;
 }
 .power{
   display: inline-block;
@@ -164,14 +163,15 @@ box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.7);
   width:50px;
   border-radius:30px;
   font-size: 10px;
-  padding-top:5px;
+  margin-top:5px;
   line-height:18px;
   background: #666;
+  border: 2px inset #666;
   /*background: radial-gradient(#ddf,#ddf,#00f);*/
 }
 .pslide{
   text-align: center;
-  margin-top:-4px;
+  margin-top:1px;
   padding-bottom:-4px;
   height:26px;
   width:26px;
@@ -183,18 +183,38 @@ box-shadow: inset 0px 0px 50px 1px rgba(54,54,54,0.7);
   background: #cfc!important;
   box-shadow: inset -5px -5px 30px 30px rgba(54,255,54,0.8);
 }
-
 .redinit{
   background: #fcc!important;
   box-shadow: inset 5px -5px 30px 30px rgba(255,100,100,0.8);
 }
-
 .bluuinit{
   background: #ccf!important;
   box-shadow: inset -5px -5px 30px 30px rgba(100,100,255,0.8);
 }
-
 .yellowinit{
   background: #ffc!important;
   box-shadow: inset -5px 5px 30px 30px rgba(255,255,54,0.8);
+}
+@media only screen and (max-width:400px){
+  h1{
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Arial', cursive;
+  }
+  h2{
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Arial', cursive;
+  }
+  .operation_area{
+    float: left;
+    position: absolute;
+    top:210px;
+    margin-left:77px;
+    height:150px;
+    width:150px;
+    border-radius: 50%;
+    background: radial-gradient(#888,#888,#888,#888,#000,#000);
+    box-shadow: 0px 0px 10px 4px rgba(54,54,54,0.2);
+  }
 }

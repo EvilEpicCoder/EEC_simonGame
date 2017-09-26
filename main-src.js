@@ -1,6 +1,7 @@
 //main-src.js Simon Game
 var bStartFlag=false;
 var bStrictMode=false;
+var bFailed=false;
 var myoffDelay=0;
 var green_t,red_t,blue_t,yellow_t=0;
 var simonSayArr=[];
@@ -21,7 +22,6 @@ $(document).ready(function(){
     }
   }
   });
-
   $(".red").click(function(){
     if(bStartFlag==true){
     userConfirmArr.push(2);
@@ -94,9 +94,17 @@ $(document).ready(function(){
   i=0;
   }
   });
+
   $(".strict").click(function(){
     if(bStartFlag==true){
-      bStrictMode=true;
+        if(bStrictMode==false){
+          bStrictMode=true;
+          $(".strict").addClass("strictmodeactive");
+
+          }else{
+          $(".strict").removeClass("strictmodeactive");
+          bStrictMode=false;
+        }
     }
   });
 });
@@ -105,8 +113,8 @@ function initSimon(){
 setTimeout(function(){
   lightOnTime(simonSayArr[i]);
   i=i+1;
-  if (i<=simonSayArr.lenght-1)simonSayArr[i];i;setTimeout(initSimon(),i*i*"100");
-},i*i*"800");
+  if (i<=simonSayArr.lenght-1)simonSayArr[i];i;setTimeout(initSimon(),i*"100");
+},i*"1500");
 }
 
 function onProcedure(){
@@ -146,29 +154,17 @@ function lightOnTime(colorNum){
   }
 }
 function simonThinking(arr1,arr2){
-var newArr = [];
   // Same, same; but different.
-var aarr1 = arr1.filter(function(value){
+var bSame = arr1.filter(function(value){
 	for (var i=0; i<arr2.length; i++)
 	{
-	  if ( arr2[i] == value )
-	    return false;
+	  if ( arr2[i] != arr1[i] )
+	   return false;
 	}
 	return true;
 	});
-var aarr2 = arr2.filter(function(value){
-	for (var j=0; j<arr1.length; j++)
-	{
-	  if ( arr1[j] == value )
-	    return false;
-	}
-	return true;
-	});
-	newArr = aarr1.concat(aarr2);
-
-      if(newArr.length>0){
+      if(bSame==false){
         $("#GTA_fail")[0].play();
-        step=-1;
         $(".green").addClass("greeninit");
         $(".red").addClass("redinit");
         $(".bluu").addClass("bluuinit");
@@ -181,14 +177,34 @@ var aarr2 = arr2.filter(function(value){
         $(".yellow").removeClass("yellowinit");
         clearInterval(myoffDelay);
         myoffDelay=0;
-      },6000);
-      i=0;
-      initSimon();
-    }else{
+      },100);
+      if (bStrictMode==true){
+        simonSayArr=[];
+        userConfirmArr=[];
+        step=1;
+      }
+  
+      if(bFailed==false)
+      step--;
+      $(".score").text(step);
+      userConfirmArr=[];
+      bFailed=true;
+      var zalupa=setInterval(function(){
+        i=0;
+        step;
+        if(bStrictMode==true){
           prepareSimon();
+        }else{
+          initSimon();
+        }
+        clearInterval(zalupa);},1000);
+    }else{
           userConfirmArr=[];
+          bFailed=false;
+          prepareSimon();
     }
   //   }
+  console.log(bStrictMode+"strict ACTIVE");
 
 }
 function prepareSimon(){
