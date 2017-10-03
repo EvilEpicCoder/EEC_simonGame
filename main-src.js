@@ -128,9 +128,6 @@ function onProcedure(){
     myoffDelay=0;
   },2000);
 }
-function strictSimon(){
-
-}
 function lightOnTime(colorNum){
   if(colorNum==1){
     $(".green").addClass("greeninit");
@@ -183,7 +180,7 @@ var bSame = arr1.filter(function(value){
         userConfirmArr=[];
         step=1;
       }
-  
+
       if(bFailed==false)
       step--;
       $(".score").text(step);
