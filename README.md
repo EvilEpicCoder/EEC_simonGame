@@ -8,7 +8,7 @@
 	* Small story telling : I try to create very accurate "plastic design" and simulate in design the light effect from the bulbs.
 #### 2. What I use in this project
 	* Frameworks : jQuery, CSS3, HTML5
-	* Links: [This is Link CHANGE_HERE name](https://www.CHANGE_HERE "CHANGE_HERE")
+	* Links: [Screenshot](https://www.CHANGE_HERE "CHANGE_HERE")
 		* What cool things I found: with shadows you can manage any effect what you like
 		* What I do not like: time asynchronization is something awful in this project
 	* Features: lights effect simulation
